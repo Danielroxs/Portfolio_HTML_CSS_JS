@@ -8,6 +8,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
+
 .container {
     position: relative;
     background: #f0f3fd;
@@ -164,4 +165,38 @@
     clip-path: circle(150% at 0 0);
     transition: 1.5s cubic-bezier(0.645, 0.045, 0.355, 1);
     transition-delay: 0s;
+}
+
+span {
+    color:#37a1f2;
+}
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+}
+
+.about-img img {
+    width: 40vw;
+}
+
+.heading {
+    font-size: 3.5rem;
+    text-align: center;
+}
+
+.about-content h2 {
+    text-align: left;
+    line-height: 1.2;
+}
+
+.about-content h3 {
+    font-size: 2rem;
+}
+
+.about-content p {
+    font-size: 1rem;
+    margin: 1rem 0 1.5rem;
 }
