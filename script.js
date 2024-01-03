@@ -1,5 +1,9 @@
 const container = document.querySelector('.container');
 
+let header = document.querySelector('.header');
+
+header.classList.toggle('sticky', window.scrollY > 100)
+
 const cloneContainer = container.cloneNode(true);
 cloneContainer.id = 'dark-container';
 document.body.appendChild(cloneContainer);

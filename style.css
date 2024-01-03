@@ -8,6 +8,13 @@
     font-family: 'Poppins', sans-serif;
 }
 
+:root {
+    --bg-color: #fdfdfd;
+    --text-color: #333;
+    --main-color: #754ef9;
+    --white-color: #fdfdfd;
+    --shadow-color: rgba(0, 0, 0, .2);
+}
 
 .container {
     position: relative;
@@ -21,10 +28,40 @@
     left: 0;
     width: 100%;
     padding: 30px 10%;
-    background: transparent;
     display: flex;
     align-items: center;
     z-index: 100;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .1);
+    backdrop-filter: blur(50px);
+    z-index: -1;
+}
+
+.header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .4), transparent);
+    transition: .5s;
+}
+
+.header:hover::after {
+    left: 100%;
+}
+
+.header.sticky {
+    background: transparent;
 }
 
 .logo {
@@ -41,6 +78,77 @@
     margin-right: 35px;
     transition: .5s;
 }
+
+#check {
+    display: none;
+}
+
+.icons {
+    position: absolute;
+    right: 10%;
+    font-size: 1.5rem;
+    color: #754ef9;
+    cursor: pointer;
+    display: none;
+}
+
+@media (max-width:992px) {
+    .header {
+        padding: 1.3rem 5%;
+    }
+}
+
+@media (max-width:768px) {
+    .icons {
+        display: inline-flex;
+    }
+
+    #check:checked~.icons #menu-icon {
+        display: none;
+    }
+
+    .icons #close-icon {
+        display: none;
+    }
+
+    #check:checked~.icons #close-icon {
+        display: block;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background: rgba(0, 0, 0, .1);
+        backdrop-filter: blur(50px);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .1);
+        overflow: hidden;
+        transition: .3s ease;
+    }
+
+    #check:checked~.navbar {
+        height: 17.7rem;
+    }
+
+    .navbar a {
+        display: block;
+        font-size: 1.1rem;
+        margin: 1.5rem 0;
+        text-align: center;
+        transform: translateY(-50px);
+        opacity: 0;
+        transition: .3s ease;
+    }
+
+    #check:checked~.navbar a {
+        transform: translateY(0);
+        opacity: 1;
+        transition-delay: calc(.15s * var(--i));
+    }
+}
+
 
 .navbar a:hover,
 .navbar a.active {
@@ -130,7 +238,7 @@
     position: absolute;
     bottom: 0;
     right: 65px;
-    width: 43%;
+    width: 41%;
     pointer-events: none;
 }
 
@@ -173,6 +281,7 @@ span {
 
 .about {
     display: flex;
+    height: 100vh;
     justify-content: center;
     align-items: center;
     gap: 4rem;
