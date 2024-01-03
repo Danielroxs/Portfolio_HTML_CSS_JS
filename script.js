@@ -15,6 +15,12 @@ const darkContainer = document.querySelector('#dark-container');
 
 const darkContainerImg = document.querySelector('#dark-container .home-img img');
 
+window.onscroll = () => {
+let header = document.querySelector('.header');
+
+header.classList.toggle('sticky', window.scrollY > 100)
+}
+
 darkContainerImg.src = 'imgDark.png';
 
 toggleIcons.forEach(toggle => {
