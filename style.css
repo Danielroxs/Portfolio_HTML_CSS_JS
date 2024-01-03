@@ -8,6 +8,13 @@
     font-family: 'Poppins', sans-serif;
 }
 
+:root {
+    --bg-color: #fdfdfd;
+    --text-color: #333;
+    --main-color: #754ef9;
+    --white-color: #fdfdfd;
+    --shadow-color: rgba(0, 0, 0, .2)
+}
 
 .container {
     position: relative;
@@ -25,6 +32,7 @@
     display: flex;
     align-items: center;
     z-index: 100;
+    transition: .5s;
 }
 
 .logo {
@@ -40,6 +48,19 @@
     font-weight: 500;
     margin-right: 35px;
     transition: .5s;
+}
+
+.header.sticky {
+    background: var(--bg-color);
+    box-shadow: 0 .5rem .5rem var(--shadow-color);
+}
+
+.header.sticky .navbar a {
+    color: var(--text-color);
+}
+
+.header.sticky .navbar a.active {
+    color:var(--main-color)
 }
 
 .navbar a:hover,
@@ -172,6 +193,7 @@ span {
 }
 
 .about {
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -199,4 +221,22 @@ span {
 .about-content p {
     font-size: 1rem;
     margin: 1rem 0 1.5rem;
+}
+
+.services .services-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.services-container .services-box {
+    flex: 1 1 30rem;
+    background: var(--bg-color);
+    padding: 3rem 2rem 4rem;
+    border-radius: 2rem;
+    box-shadow: 0 .1rem .5rem var(--shadow-color);
+    text-align: center;
+    border-top: .6rem solid var(--main-color);
 }
