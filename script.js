@@ -1,9 +1,5 @@
 const container = document.querySelector('.container');
 
-let header = document.querySelector('.header');
-
-header.classList.toggle('sticky', window.scrollY > 100)
-
 const cloneContainer = container.cloneNode(true);
 cloneContainer.id = 'dark-container';
 document.body.appendChild(cloneContainer);
@@ -16,9 +12,9 @@ const darkContainer = document.querySelector('#dark-container');
 const darkContainerImg = document.querySelector('#dark-container .home-img img');
 
 window.onscroll = () => {
-let header = document.querySelector('.header');
+    let header = document.querySelector('.header');
 
-header.classList.toggle('sticky', window.scrollY > 100)
+    header.classList.toggle('sticky', window.scrollY > 100)
 }
 
 darkContainerImg.src = 'imgDark.png';
@@ -40,3 +36,17 @@ toggleIcons.forEach(toggle => {
 
     })
 })
+
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 50,
+    loop: true,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+});
